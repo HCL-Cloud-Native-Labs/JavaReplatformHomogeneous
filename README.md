@@ -1,1 +1,1 @@
-# JavaReplatformHomogeneous
+# JavaReplatformHomogeneous Application
