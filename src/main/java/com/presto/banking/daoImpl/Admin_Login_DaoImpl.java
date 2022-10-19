@@ -3,12 +3,11 @@ package com.presto.banking.daoImpl;
 import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.List;
-
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.Query;
 import org.hibernate.classic.Session;
-import org.hibernate.*;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
@@ -20,8 +19,7 @@ import com.presto.banking.util.HibernateUtil;
  * @author VS60001724
  *
  */
-public class Admin_Login_DaoImpl extends HibernateUtil implements
-		ModelDriven<Object>, SessionAware {
+public class Admin_Login_DaoImpl extends HibernateUtil implements ModelDriven<Object>, SessionAware {
 
 	private Map<String, Object> usersession;
 
@@ -33,7 +31,7 @@ public class Admin_Login_DaoImpl extends HibernateUtil implements
 	public Admin_Login checkLogin(Admin_Login login)
 
 	{
-		
+
 		usersession = ActionContext.getContext().getSession();
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
@@ -45,11 +43,8 @@ public class Admin_Login_DaoImpl extends HibernateUtil implements
 		password = login.getPassword();
 		bank_id = login.getBank_id();
 
-		String SQL_QUERY = "SELECT login FROM Admin_Login login WHERE login.userName = '"
-				+ userName
-				+ "' AND login.password = '"
-				+ password
-				+ "' AND login.bank_id = '" + bank_id + "'";
+		String SQL_QUERY = "SELECT login FROM Admin_Login login WHERE login.userName = '" + userName
+				+ "' AND login.password = '" + password + "' AND login.bank_id = '" + bank_id + "'";
 
 		try {
 
@@ -77,20 +72,17 @@ public class Admin_Login_DaoImpl extends HibernateUtil implements
 				rr.setCreated(date);
 
 				session.save(rr);
-				//Saving Last Login
-				String SQL_QUERY1 = "SELECT depo.created FROM Admin_LoginMan depo WHERE depo.bank_id ='"
-						+ bank_id + "' ORDER BY depo.id DESC";
+				// Saving Last Login
+				String SQL_QUERY1 = "SELECT depo.created FROM Admin_LoginMan depo WHERE depo.bank_id ='" + bank_id
+						+ "' ORDER BY depo.id DESC";
 				Query query1 = session.createQuery(SQL_QUERY1);
 
 				@SuppressWarnings("rawtypes")
 				List results = query1.list();
-				try
-				{
-				String se = results.get(1).toString();
-				usersession.put("user2", se);
-				}
-				catch(Exception e)
-				{
+				try {
+					String se = results.get(1).toString();
+					usersession.put("user2", se);
+				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}
 
@@ -128,8 +120,8 @@ public class Admin_Login_DaoImpl extends HibernateUtil implements
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
-		String SQL_QUERY = "SELECT chpw.password FROM Admin_Login chpw WHERE chpw.bank_id ='"
-				+ abcd + "' AND chpw.password='" + test + "' ";
+		String SQL_QUERY = "SELECT chpw.password FROM Admin_Login chpw WHERE chpw.bank_id ='" + abcd
+				+ "' AND chpw.password='" + test + "' ";
 		try {
 			Query query = session.createQuery(SQL_QUERY);
 			@SuppressWarnings("rawtypes")
