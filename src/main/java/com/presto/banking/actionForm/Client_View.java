@@ -1,117 +1,127 @@
 package com.presto.banking.actionForm;
-
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.*;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 @Entity
 @Table(name = "bank_trans")
 public class Client_View implements Serializable {
+    private static final long serialVersionUID = 1228139604540697267L;
 
-	
-	
-	private static final long serialVersionUID = 1228139604540697267L;
-	private Long id;
-	private String clid;
-	private String details;
-	private String amount;
-	private String withdrawn;
-	private String deposit;
-	private String test;
-	private String namount;
-	private String pamount;
-	private Date created;
+    private Long id;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "id")
-	public Long getId() {
-		return id;
-	}
+    private String clid;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private String details;
 
-	@Column(name = "bank_client_id")
-	public String getClid() {
-		return clid;
-	}
+    private String amount;
 
-	public void setClid(String clid) {
-		this.clid = clid;
-	}
+    private String withdrawn;
 
-	@Column(name = "details")
-	public String getDetails() {
-		return details;
-	}
+    private String deposit;
 
-	public void setDetails(String details) {
-		this.details = details;
-	}
+    private String test;
 
-	@Column(name = "balance")
-	public String getAmount() {
-		return amount;
-	}
+    private String namount;
 
-	public void setAmount(String amount) {
-		this.amount = amount;
-	}
+    private String pamount;
 
-	@Column(name = "withdrawn")
-	public String getWithdrawn() {
-		return withdrawn;
-	}
+    private Date created;
 
-	public void setWithdrawn(String withdrawn) {
-		this.withdrawn = withdrawn;
-	}
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    public Long getId() {
+        return id;
+    }
 
-	@Column(name = "deposit")
-	public String getDeposit() {
-		return deposit;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setDeposit(String deposit) {
-		this.deposit = deposit;
-	}
-	@Column(name = "created")
-	public Date getCreated() {
-		return created;
-	}
+    @Column(name = "bank_client_id")
+    public String getClid() {
+        return clid;
+    }
 
-	public void setCreated(Date created) {
-		this.created = created;
-	}
-	@Transient
-	public String getTest() {
-		return test;
-	}
+    public void setClid(String clid) {
+        this.clid = clid;
+    }
 
-	public void setTest(String test) {
-		this.test = test;
-	}
+    @Column(name = "details")
+    public String getDetails() {
+        return details;
+    }
 
-	@Transient
-	public String getNamount() {
-		return namount;
-	}
+    public void setDetails(String details) {
+        this.details = details;
+    }
 
-	public void setNamount(String namount) {
-		this.namount = namount;
-	}
+    @Column(name = "balance")
+    public String getAmount() {
+        return amount;
+    }
 
-	@Transient
-	public String getPamount() {
-		return pamount;
-	}
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
 
-	public void setPamount(String pamount) {
-		this.pamount = pamount;
-	}
+    @Column(name = "withdrawn")
+    public String getWithdrawn() {
+        return withdrawn;
+    }
 
+    public void setWithdrawn(String withdrawn) {
+        this.withdrawn = withdrawn;
+    }
 
+    @Column(name = "deposit")
+    public String getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(String deposit) {
+        this.deposit = deposit;
+    }
+
+    @Column(name = "created")
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    @Transient
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+
+    @Transient
+    public String getNamount() {
+        return namount;
+    }
+
+    public void setNamount(String namount) {
+        this.namount = namount;
+    }
+
+    @Transient
+    public String getPamount() {
+        return pamount;
+    }
+
+    public void setPamount(String pamount) {
+        this.pamount = pamount;
+    }
 }

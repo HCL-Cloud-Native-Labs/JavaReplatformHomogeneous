@@ -1,68 +1,48 @@
-/*
- * Hibernate Utility Class
- * Creates Hibernate Sessions 
- * Makes possible to access hibernate session variables.
+/* Hibernate Utility Class
+Creates Hibernate Sessions 
+Makes possible to access hibernate session variables.
  */
 package com.presto.banking.util;
-
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
-
-/*
- *HibernateUtil class is extended in daoImpl so MD5 method is written here...
- *Can create Interface of class too 
- */
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 public class HibernateUtil {
+	private static final EntityManagerFactory entityManagerFactory = HibernateUtil.buildSessionFactory();
 
-	private static final SessionFactory sessionFactory = buildSessionFactory();
+    private static EntityManagerFactory buildSessionFactory() {
+        try {
+            // Create the SessionFactory from hibernate.cfg.xml
+        	EntityManagerFactory entityManagerFactory =  Persistence.createEntityManagerFactory("Presto");
+        	 return entityManagerFactory;
+        } catch (Throwable ex) {
+            System.err.println("Initial SessionFactory creation failed." + ex);
+            throw new ExceptionInInitializerError(ex);
+        }
+    }
 
-	private static SessionFactory buildSessionFactory() {
-		try {
-			// Create the SessionFactory from hibernate.cfg.xml
-			return new AnnotationConfiguration().configure()
-					.buildSessionFactory();
-		} catch (Throwable ex) {
-			System.err.println("Initial SessionFactory creation failed." + ex);
-			throw new ExceptionInInitializerError(ex);
-		}
-	}
+    public static EntityManagerFactory getSessionFactory() {
+        return HibernateUtil.entityManagerFactory;
+    }
 
-	public static SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
+    /* Md5 Method */
+    public static String md5(String input) {
+        String md5 = null;
+        if (null == input)
+            return null;
 
-	
-	
-	/*	
- Md5 Method
-	
-	*/
-	public static String md5(String input) {
-
-		String md5 = null;
-
-		if (null == input)
-			return null;
-
-		try {
-
-			// Create MessageDigest object for MD5
-			MessageDigest digest = MessageDigest.getInstance("MD5");
-
-			// Update input string in message digest
-			digest.update(input.getBytes(), 0, input.length());
-
-			// Converts message digest value in base 16 (hex)
-			md5 = new BigInteger(1, digest.digest()).toString(16);
-
-		} catch (NoSuchAlgorithmException e) {
-
-			e.printStackTrace();
-		}
-		return md5;
-	}
+        try {
+            // Create MessageDigest object for MD5
+            MessageDigest digest = MessageDigest.getInstance("MD5");
+            // Update input string in message digest
+            digest.update(input.getBytes(), 0, input.length());
+            // Converts message digest value in base 16 (hex)
+            md5 = new BigInteger(1, digest.digest()).toString(16);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return md5;
+    }
 }

@@ -5,6 +5,6 @@ set TOMCAT6_HOME=C:\Software\apache-tomcat-6.0.32
 set SRC_DIR=C:\Presto
 cd %SRC_DIR% 
 start /W /B mvn clean install  
-start /W /B copy %SRC_DIR%\target\Presto_Legacy.war %TOMCAT6_HOME%\webapps\Presto_Legacy.war
+start /W /B copy %SRC_DIR%\target\Presto.war %TOMCAT6_HOME%\webapps\Presto.war
 cd %TOMCAT6_HOME%\bin
 startup.bat

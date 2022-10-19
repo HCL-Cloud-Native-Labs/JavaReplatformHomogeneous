@@ -1,88 +1,96 @@
 package com.presto.banking.actionForm;
-
 import java.io.Serializable;
-import javax.persistence.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 /**
+ *
+ *
  * @author VS60001724
- * 
  */
 @Entity
 @Table(name = "bank_emp_login")
 public class Emp_Login implements Serializable {
+    private static final long serialVersionUID = 2214940007130110628L;
 
-	private static final long serialVersionUID = 2214940007130110628L;
-	private String userName;
-	private String password;
-	private String bank_id;
+    private String userName;
 
-	private String oldpw;
-	private String newpw;
-	private String cnewpw;
-	private String test;
+    private String password;
 
-	@Id
-	@Column(name = "bank_emp_user")
-	public String getUserName() {
-		return userName;
-	}
+    private String bank_id;
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    private String oldpw;
 
-	@Column(name = "bank_emp_pass")
-	public String getPassword() {
-		return password;
-	}
+    private String newpw;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    private String cnewpw;
 
-	@Column(name = "bank_emp_id")
-	public String getBank_id() {
-		return bank_id;
-	}
+    private String test;
 
-	public void setBank_id(String bank_id) {
-		this.bank_id = bank_id;
-	}
+    @Id
+    @Column(name = "bank_emp_user")
+    public String getUserName() {
+        return userName;
+    }
 
-	@Transient
-	public String getOldpw() {
-		return oldpw;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	public void setOldpw(String oldpw) {
-		this.oldpw = oldpw;
-	}
+    @Column(name = "bank_emp_pass")
+    public String getPassword() {
+        return password;
+    }
 
-	@Transient
-	public String getNewpw() {
-		return newpw;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setNewpw(String newpw) {
-		this.newpw = newpw;
-	}
+    @Column(name = "bank_emp_id")
+    public String getBank_id() {
+        return bank_id;
+    }
 
-	@Transient
-	public String getCnewpw() {
-		return cnewpw;
-	}
+    public void setBank_id(String bank_id) {
+        this.bank_id = bank_id;
+    }
 
-	public void setCnewpw(String cnewpw) {
-		this.cnewpw = cnewpw;
-	}
+    @Transient
+    public String getOldpw() {
+        return oldpw;
+    }
 
-	@Transient
-	public String getTest() {
-		return test;
-	}
+    public void setOldpw(String oldpw) {
+        this.oldpw = oldpw;
+    }
 
-	public void setTest(String test) {
-		this.test = test;
-	}
+    @Transient
+    public String getNewpw() {
+        return newpw;
+    }
 
+    public void setNewpw(String newpw) {
+        this.newpw = newpw;
+    }
+
+    @Transient
+    public String getCnewpw() {
+        return cnewpw;
+    }
+
+    public void setCnewpw(String cnewpw) {
+        this.cnewpw = cnewpw;
+    }
+
+    @Transient
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
 }

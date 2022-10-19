@@ -1,67 +1,70 @@
 package com.presto.banking.actionClass;
-
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.presto.banking.actionForm.Client_View;
 import com.presto.banking.daoImpl.Client_View_DaoImpl;
+public class Client_View_Action extends ActionSupport {
+    private static final long serialVersionUID = -1977441021493581739L;
 
-public class Client_View_Action extends ActionSupport  {
+    private Client_View view;
 
-	private static final long serialVersionUID = -1977441021493581739L;
-	private Client_View view;
-	private Client_View abc = new Client_View();
-	private Client_View_DaoImpl xyz = new Client_View_DaoImpl();
-	private List<Client_View> detailList;
-	private String balance;
+    private Client_View abc = new Client_View();
 
-	
-	/**
-	 * @return Client View Transactions
-	 */
-	public String viewcl() {
-		this.detailList = xyz.list(view);
-		//xyz.vish(abc);
-		return SUCCESS;
+    private Client_View_DaoImpl xyz = new Client_View_DaoImpl();
 
-	}
+    private List<Client_View> detailList;
 
-	public Client_View getView() {
-		return view;
-	}
+    private String balance;
 
-	public void setView(Client_View view) {
-		this.view = view;
-	}
+    /**
+     *
+     *
+     * @return Client View Transactions
+     */
+    public String viewcl() {
+        this.detailList = xyz.list(view);
+        // xyz.vish(abc);
+        return SUCCESS;
+    }
 
-	public Client_View_DaoImpl getXyz() {
-		return xyz;
-	}
+    public Client_View getView() {
+        return view;
+    }
 
-	public void setXyz(Client_View_DaoImpl xyz) {
-		this.xyz = xyz;
-	}
+    public void setView(Client_View view) {
+        this.view = view;
+    }
 
-	public List<Client_View> getDetailList() {
-		return detailList;
-	}
+    public Client_View_DaoImpl getXyz() {
+        return xyz;
+    }
 
-	public void setDetailList(List<Client_View> detailList) {
-		this.detailList = detailList;
-	}
+    public void setXyz(Client_View_DaoImpl xyz) {
+        this.xyz = xyz;
+    }
 
-	public Client_View getAbc() {
-		return abc;
-	}
+    public List<Client_View> getDetailList() {
+        return detailList;
+    }
 
-	public void setAbc(Client_View abc) {
-		this.abc = abc;
-	}
-	public String getBalance() {
-		return balance;
-	}
+    public void setDetailList(List<Client_View> detailList) {
+        this.detailList = detailList;
+    }
 
-	public void setBalance(String balance) {
-		this.balance = balance;
-	}
+    public Client_View getAbc() {
+        return abc;
+    }
+
+    public void setAbc(Client_View abc) {
+        this.abc = abc;
+    }
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
+    }
 }
