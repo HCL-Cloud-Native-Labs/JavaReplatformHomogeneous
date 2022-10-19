@@ -76,6 +76,7 @@ public class BankDataHolder extends SecurityManager {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	public void checkSecurity() {
 
 		// set the policy file as the system securuty policy

@@ -38,35 +38,27 @@ public class BankSocketAddress extends SecurityManager {
 		} catch (Exception x) {
 		}
 
-		
 		socket.setSendBufferSize(20);
 
-		
 		socket.getSendBufferSize();
 
-		
 		socket.setReceiveBufferSize(20);
 
-		
 		socket.getReceiveBufferSize();
 
-		
 		socket.setReuseAddress(true);
 
-		
 		socket.getReuseAddress();
 
-		
 		socket.setBroadcast(false);
 
 		// getBroadcast() method
-		
+
 		socket.getBroadcast();
 
 		// setTrafficClass() method
 		socket.setTrafficClass(45);
 
-		
 		socket.getTrafficClass();
 
 		// getChannel() method
@@ -78,11 +70,11 @@ public class BankSocketAddress extends SecurityManager {
 		// close() method
 		socket.close();
 
-		
 		socket.isClosed();
 
 	}
 
+	@SuppressWarnings("deprecation")
 	public void socketCheckAccess() {
 
 		// set the policy file as the system securuty policy
@@ -90,7 +82,7 @@ public class BankSocketAddress extends SecurityManager {
 
 		// create a security manager
 		BankSocketAddress sm = new BankSocketAddress();
-		
+
 		// set the system security manager
 		System.setSecurityManager(sm);
 
@@ -99,7 +91,6 @@ public class BankSocketAddress extends SecurityManager {
 
 		// sm.checkPermission(perm, context);
 		// print a message if we passed the check
-		
 
 	}
 }
