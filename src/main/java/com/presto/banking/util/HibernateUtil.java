@@ -3,16 +3,21 @@ Creates Hibernate Sessions
 Makes possible to access hibernate session variables.
  */
 package com.presto.banking.util;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
 public class HibernateUtil {
 	private static final EntityManagerFactory entityManagerFactory = HibernateUtil.buildSessionFactory();
 
     private static EntityManagerFactory buildSessionFactory() {
+    	
+    	
         try {
             // Create the SessionFactory from hibernate.cfg.xml
         	EntityManagerFactory entityManagerFactory =  Persistence.createEntityManagerFactory("Presto");
