@@ -1,4 +1,14 @@
 package com.presto.banking.common;
+
+
+import com.adupgrade.util.SecurityManagerUtil;
+import sun.security.util.SecurityConstants;
+
+import static sun.security.util.SecurityConstants.AWT.ACCESS_CLIPBOARD_PERMISSION;
+import static sun.security.util.SecurityConstants.AWT.CHECK_AWT_EVENTQUEUE_PERMISSION;
+
+
+
 public class PrestoSecurityManagerAPI extends SecurityManager {
     @SuppressWarnings("deprecation")
     public static void changeSecurityAPI() {

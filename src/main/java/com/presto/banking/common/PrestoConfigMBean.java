@@ -1,4 +1,7 @@
 package com.presto.banking.common;
+
+
+
 interface PrestoConfigMBean {
     public void setThreadCount(int noOfThreads);
 

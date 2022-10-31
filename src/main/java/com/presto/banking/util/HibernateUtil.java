@@ -1,15 +1,19 @@
-/* Hibernate Utility Class
-Creates Hibernate Sessions 
-Makes possible to access hibernate session variables.
+/**
+ * Hibernate Utility Class
+ * Creates Hibernate Sessions
+ * Makes possible to access hibernate session variables.
  */
 package com.presto.banking.util;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+
+
 
 
 public class HibernateUtil {

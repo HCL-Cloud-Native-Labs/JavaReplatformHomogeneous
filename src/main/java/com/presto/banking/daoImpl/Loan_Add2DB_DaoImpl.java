@@ -1,12 +1,14 @@
 package com.presto.banking.daoImpl;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
-import org.hibernate.HibernateException;
 
 import com.presto.banking.actionForm.Loan_Details;
 import com.presto.banking.util.HibernateUtil;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import org.hibernate.HibernateException;
+
+
+
 public class Loan_Add2DB_DaoImpl extends HibernateUtil {
 	EntityManagerFactory entityManagerFactory = HibernateUtil.getSessionFactory();
 	EntityManager entityManager;

@@ -1,4 +1,7 @@
 package com.adupgrade.util;
+
+
+
 public class SecurityManagerUtil extends SecurityManager {
     public static boolean checkTopLevelWindowPermission(String arg) {
         try {

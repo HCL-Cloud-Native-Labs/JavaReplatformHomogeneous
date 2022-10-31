@@ -1,4 +1,7 @@
 package com.presto.banking.common;
+
+
+
 class SystemConfig implements PrestoConfigMBean {
     private int threadCount;
 

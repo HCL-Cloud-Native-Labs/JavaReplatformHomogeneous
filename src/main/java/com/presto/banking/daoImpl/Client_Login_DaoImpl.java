@@ -1,23 +1,24 @@
 package com.presto.banking.daoImpl;
 
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
-
-import org.apache.struts2.interceptor.SessionAware;
-import org.hibernate.HibernateException;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 import com.presto.banking.actionForm.Client_Login;
 import com.presto.banking.actionForm.Client_LoginMan;
 import com.presto.banking.util.HibernateUtil;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
+import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.HibernateException;
+
+
+
 /**
  *
  *

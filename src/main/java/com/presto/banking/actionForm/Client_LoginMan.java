@@ -1,12 +1,16 @@
 package com.presto.banking.actionForm;
+
+
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+
+
 @Entity
 @Table(name = "bank_client_loginman")
 public class Client_LoginMan implements Serializable {

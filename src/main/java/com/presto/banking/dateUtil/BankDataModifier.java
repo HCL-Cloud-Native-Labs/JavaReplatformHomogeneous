@@ -1,7 +1,12 @@
 package com.presto.banking.dateUtil;
+
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+
+
 public class BankDataModifier {
     public static List strailingStrip() {
         List bigDecimalRange = new ArrayList();

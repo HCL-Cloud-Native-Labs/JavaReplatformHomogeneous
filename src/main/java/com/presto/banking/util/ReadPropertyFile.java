@@ -1,7 +1,12 @@
 package com.presto.banking.util;
+
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+
+
+
 public class ReadPropertyFile {
     public Properties config() throws IOException {
         Properties prop = new Properties();
