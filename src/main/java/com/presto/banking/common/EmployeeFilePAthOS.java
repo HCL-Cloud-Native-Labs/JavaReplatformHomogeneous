@@ -1,10 +1,14 @@
 package com.presto.banking.common;
+
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
+
+
 public class EmployeeFilePAthOS {
     public static String fileseparator() throws IOException {
         OutputStream os = new FileOutputStream(new File("D:/Mani/Migration/Mani/read.txt"));
@@ -17,3 +21,4 @@ public class EmployeeFilePAthOS {
         return st;
     }
 }
+

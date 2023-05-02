@@ -1,10 +1,14 @@
 package com.presto.banking.util;
+
+
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-
 import org.apache.poi.ss.formula.functions.T;
+
+
 public class UserList extends ArrayList {
     private final String additionalItem;
 
@@ -14,52 +18,55 @@ public class UserList extends ArrayList {
 
     @Override
     public int size() {
-        return super.size() + 1;
+        return (super.size()) + 1;
     }
 
-    public  Iterator<T> iterator() {
-        return new InternalIterator();
+    public Iterator<T> iterator() {
+        return new UserList.InternalIterator();
     }
 
-    class InternalIterator implements Iterator{
+    class InternalIterator implements Iterator {
         Integer cursor;
 
-        Integer lastRet=-1;
+        Integer lastRet = -1;
 
-        Integer expectedModCount=modCount;
+        Integer expectedModCount = modCount;
 
-        public  boolean hasNext() {
-            return cursor != size();
+        public boolean hasNext() {
+            return (cursor) != (size());
         }
 
-        public  T next() {
+        public T next() {
             checkForComodification();
             int i = cursor;
-            if (i >= size())
-            throw new NoSuchElementException();
+            if (i >= (size()))
+                throw new NoSuchElementException();
+
             cursor = i + 1;
             lastRet = i;
-            return (T) get(i);
+            return ((T) (get(i)));
         }
 
-        public  void remove() {
-            if (lastRet < 0)
-            throw new IllegalStateException();
+        public void remove() {
+            if ((lastRet) < 0)
+                throw new IllegalStateException();
+
             checkForComodification();
-
             try {
-            UserList.this.remove(lastRet);
-            cursor = lastRet;
-            lastRet = -1;
-            expectedModCount = modCount;
+                UserList.this.remove(lastRet);
+                cursor = lastRet;
+                lastRet = -1;
+                expectedModCount = modCount;
             } catch (IndexOutOfBoundsException ex) {
-            throw new ConcurrentModificationException();
-            };
+                throw new ConcurrentModificationException();
+            }
         }
 
-        final  void checkForComodification() {
-            if (modCount != expectedModCount)
-            throw new ConcurrentModificationException();
+        final void checkForComodification() {
+            if ((modCount) != (expectedModCount))
+                throw new ConcurrentModificationException();
+
         }
     }
 }
+

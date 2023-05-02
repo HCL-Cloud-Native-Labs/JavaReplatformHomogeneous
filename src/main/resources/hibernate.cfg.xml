@@ -1,18 +1,11 @@
-<?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
-
-<hibernate-configuration>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><hibernate-configuration>
 	<session-factory>
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
-		<property name="connection.url">
-			jdbc:mysql://localhost:3306/banking?characterEncoding=utf8
-		</property>
-		<property name="connection.username">root</property>
-		<property name="connection.password">root</property>
+		<property name="connection.url"><!--This block is modified by the ADCloud tool-->jdbc:mysql://adcloud-test-db.mysql.database.azure.com:3306/banking?useSSL=false&amp;serverTimezone= UTC</property>
+		<property name="connection.username"><!--This block is modified by the ADCloud tool-->adcloud_admin@adcloud-test-db</property>
+		<property name="connection.password"><!--This block is modified by the ADCloud tool-->D3gQqYMgR7$kRQ^5</property>
 		<property name="connection.pool_size">1</property>
 		<property name="dialect">
 			org.hibernate.dialect.MySQLDialect
@@ -28,38 +21,38 @@
 
 
 
-		<!-- Mapping class for Bank Details -->
-		<mapping class="com.presto.banking.actionForm.Bank_Detail" />
+		
+		<mapping class="com.presto.banking.actionForm.Bank_Detail"/>
 
-		<!-- Mapping class for Different Logins -->
-		<mapping class="com.presto.banking.actionForm.Admin_Login" />
-		<mapping class="com.presto.banking.actionForm.Emp_Login" />
-		<mapping class="com.presto.banking.actionForm.Client_Login" />
-
-
-		<!-- Mapping class for Different Login Manager -->
-		<mapping class="com.presto.banking.actionForm.Admin_LoginMan" />
-		<mapping class="com.presto.banking.actionForm.Emp_LoginMan" />
-		<mapping class="com.presto.banking.actionForm.Client_LoginMan" />
+		
+		<mapping class="com.presto.banking.actionForm.Admin_Login"/>
+		<mapping class="com.presto.banking.actionForm.Emp_Login"/>
+		<mapping class="com.presto.banking.actionForm.Client_Login"/>
 
 
-		<!-- Mapping class for Admin Actions -->
-		<!-- Admin can change Employee & Client Password -->
-		<mapping class="com.presto.banking.actionForm.Admin_ClientChPW" />
-		<mapping class="com.presto.banking.actionForm.Admin_EmpChPW" />
-
-		<!-- Admin can add new Employee -->
-		<mapping class="com.presto.banking.actionForm.Admin_AddEmp" />
-
-		<!-- Employee can add new Client -->
-		<mapping class="com.presto.banking.actionForm.Emp_AddClient" />
+		
+		<mapping class="com.presto.banking.actionForm.Admin_LoginMan"/>
+		<mapping class="com.presto.banking.actionForm.Emp_LoginMan"/>
+		<mapping class="com.presto.banking.actionForm.Client_LoginMan"/>
 
 
-		<!-- Mapping Class for Transactions Record -->
-		<mapping class="com.presto.banking.actionForm.Emp_AddTrans" />
+		
+		
+		<mapping class="com.presto.banking.actionForm.Admin_ClientChPW"/>
+		<mapping class="com.presto.banking.actionForm.Admin_EmpChPW"/>
 
-		<!-- Mapping Class for Client Records view -->
-		<mapping class="com.presto.banking.actionForm.Client_View" />
+		
+		<mapping class="com.presto.banking.actionForm.Admin_AddEmp"/>
+
+		
+		<mapping class="com.presto.banking.actionForm.Emp_AddClient"/>
+
+
+		
+		<mapping class="com.presto.banking.actionForm.Emp_AddTrans"/>
+
+		
+		<mapping class="com.presto.banking.actionForm.Client_View"/>
 
 
 

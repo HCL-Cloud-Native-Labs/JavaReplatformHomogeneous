@@ -1,9 +1,13 @@
 package com.presto.banking.datagram;
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+
 public class BankAutomateCollection {
     private static final int CST_MAX_INT = 10;
 
@@ -12,8 +16,8 @@ public class BankAutomateCollection {
     public static Collection automateCollections() {
         // System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
         List<UserOrder> fooList = new ArrayList<UserOrder>();
-        while (fooList.size() < CST_MAX_SIZE) {
-            int i = ((int) (Math.random() * CST_MAX_INT));
+        while ((fooList.size()) < (BankAutomateCollection.CST_MAX_SIZE)) {
+            int i = ((int) ((Math.random()) * (BankAutomateCollection.CST_MAX_INT)));
             fooList.add(new UserOrder(i));
         } 
         UserOrder[] foos = new UserOrder[4];
@@ -56,3 +60,4 @@ public class BankAutomateCollection {
         return fooList;
     }
 }
+

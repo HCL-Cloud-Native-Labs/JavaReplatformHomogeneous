@@ -1,4 +1,6 @@
 package com.presto.banking.common;
+
+
 class SystemConfig implements PrestoConfigMBean {
     private int threadCount;
 
@@ -26,6 +28,7 @@ class SystemConfig implements PrestoConfigMBean {
     }
 
     public String doConfig() {
-        return (("No of Threads=" + this.threadCount) + " and DB Schema Name=") + this.schemaName;
+        return (("No of Threads=" + (this.threadCount)) + " and DB Schema Name=") + (this.schemaName);
     }
 }
+

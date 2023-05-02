@@ -1,7 +1,10 @@
 package com.presto.banking.dao;
-import java.util.List;
+
 
 import com.presto.banking.actionForm.Emp_AddTrans;
+import java.util.List;
+
+
 public interface ContactDao {
     public Emp_AddTrans add(Emp_AddTrans contact);
 
@@ -9,3 +12,4 @@ public interface ContactDao {
 
     public List<Emp_AddTrans> list();
 }
+

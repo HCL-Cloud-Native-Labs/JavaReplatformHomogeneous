@@ -1,4 +1,6 @@
 package com.presto.banking.datagram;
+
+
 public class UserOrder implements Comparable<UserOrder> {
     private int orderId = 0;
 
@@ -27,13 +29,14 @@ public class UserOrder implements Comparable<UserOrder> {
 
     @Override
     public String toString() {
-        return ((((orderId + "") + string) + "") + j) + "";
+        return (((((orderId) + "") + (string)) + "") + (j)) + "";
     }
 
     public int compareTo(UserOrder o) {
-        if (this.orderId < o.getOrderId()) {
+        if ((this.orderId) < (o.getOrderId())) {
             return -1;
         }
         return 1;
     }
 }
+

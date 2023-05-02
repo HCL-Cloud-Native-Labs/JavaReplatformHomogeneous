@@ -1,9 +1,14 @@
 package com.presto.banking.datagram;
+
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import sun.security.util.SecurityConstants;
+
+
 public class BankDataHolder extends SecurityManager {
     public static void dataGramSetting() throws IOException {
         // Constructor
@@ -38,7 +43,7 @@ public class BankDataHolder extends SecurityManager {
         socket.setTrafficClass(45);
         socket.getTrafficClass();
         // getChannel() method
-        System.out.println("Channel : " + (socket.getChannel() != null ? socket.getChannel() : "null"));
+        System.out.println(("Channel : " + ((socket.getChannel()) != null ? socket.getChannel() : "null")));
         // setSocketImplFactory() method
         socket.setDatagramSocketImplFactory(null);
         // close() method
@@ -55,8 +60,9 @@ public class BankDataHolder extends SecurityManager {
         // set the system security manager
         System.setSecurityManager(sm);
         // perform the check
-        sm.checkPermission(sun.security.util.SecurityConstants.CHECK_MEMBER_ACCESS_PERMISSION);
+        sm.checkPermission(SecurityConstants.CHECK_MEMBER_ACCESS_PERMISSION);
         // sm.checkPermission(perm, context);
         // print a message if we passed the check
     }
 }
+

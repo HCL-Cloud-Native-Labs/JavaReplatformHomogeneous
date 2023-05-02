@@ -1,20 +1,24 @@
 package com.presto.banking.daoImpl;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
 
-import org.hibernate.HibernateException;
 
 import com.presto.banking.actionForm.Admin_ClientChPW;
 import com.presto.banking.util.HibernateUtil;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
+import org.hibernate.HibernateException;
+
+
 /**
  *
  *
  * @author VS60001724
  */
 public class Admin_ClientChPW_DaoImpl extends HibernateUtil {
-	EntityManagerFactory entityManagerFactory = HibernateUtil.getSessionFactory();
-	EntityManager entityManager;
+    EntityManagerFactory entityManagerFactory = HibernateUtil.getSessionFactory();
+
+    EntityManager entityManager;
+
     /**
      *
      *
@@ -32,7 +36,7 @@ public class Admin_ClientChPW_DaoImpl extends HibernateUtil {
             query2.setParameter("password", newpw);
             query2.setParameter("bank_id", bank_id);
             int result = query2.executeUpdate();
-            System.out.println("Rows affected: " + result);
+            System.out.println(("Rows affected: " + result));
         } catch (HibernateException e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -43,3 +47,4 @@ public class Admin_ClientChPW_DaoImpl extends HibernateUtil {
         return chpw;
     }
 }
+

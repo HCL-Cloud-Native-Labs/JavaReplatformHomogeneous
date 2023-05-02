@@ -1,10 +1,13 @@
 package com.presto.banking.actionClass;
-import java.util.List;
+
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.presto.banking.actionForm.Client_Login;
 import com.presto.banking.actionForm.Emp_AddClient;
 import com.presto.banking.daoImpl.Emp_AddClient_DaoImpl;
+import java.util.List;
+
+
 /**
  *
  *
@@ -47,7 +50,7 @@ public class Emp_AddClient_Action extends ActionSupport {
 
     public String editclient() {
         this.detail = xyz.list(edit);
-        System.out.println("====--===--===" + detail);
+        System.out.println(("====--===--===" + (detail)));
         return SUCCESS;
     }
 
@@ -105,3 +108,4 @@ public class Emp_AddClient_Action extends ActionSupport {
         this.addb = addb;
     }
 }
+

@@ -1,9 +1,12 @@
 package com.presto.banking.actionClass;
-import java.util.List;
+
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.presto.banking.actionForm.Bank_Detail;
 import com.presto.banking.daoImpl.Bank_Detail_DaoImpl;
+import java.util.List;
+
+
 /**
  *
  *
@@ -52,3 +55,4 @@ public class Bank_Detail_Action extends ActionSupport {
         this.detailMan = detailMan;
     }
 }
+

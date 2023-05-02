@@ -1,11 +1,14 @@
 package com.presto.banking.actionForm;
-import java.io.Serializable;
 
+
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+
 @Entity
 @Table(name = "bank_emp_details")
 public class Admin_AddEmp implements Serializable {
@@ -179,3 +182,4 @@ public class Admin_AddEmp implements Serializable {
         this.state = state;
     }
 }
+

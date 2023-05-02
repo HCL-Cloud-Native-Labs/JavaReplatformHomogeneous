@@ -1,4 +1,7 @@
 package com.presto.banking.util;
+
+
+import com.presto.banking.actionForm.Loan_Details;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,7 +10,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Properties;
-
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -17,12 +19,11 @@ import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
 import javax.jms.ObjectMessage;
 import javax.jms.Session;
-
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.json.JSONException;
 
-import com.presto.banking.actionForm.Loan_Details;
+
 public class LoanCSVFileReader implements Serializable {
     private static final long serialVersionUID = -5198666908856120180L;
 
@@ -63,7 +64,7 @@ public class LoanCSVFileReader implements Serializable {
         return loan;
     }
 
-    public void producer(ArrayList<Loan_Details> loanDetails) throws JMSException, JSONException, IOException {
+    public void producer(ArrayList<Loan_Details> loanDetails) throws IOException, JMSException, JSONException {
         System.out.println(loanDetails);
         Properties prop = new ReadPropertyFile().config();
         String url = ActiveMQConnection.DEFAULT_BROKER_URL;
@@ -80,7 +81,7 @@ public class LoanCSVFileReader implements Serializable {
             Iterator<Loan_Details> ldIter = loanDetails.iterator();
             while (ldIter.hasNext()) {
                 Loan_Details ldValues = ldIter.next();
-                System.out.println("Names:" + ldValues.getName());
+                System.out.println(("Names:" + (ldValues.getName())));
                 Loan_Details ld = new Loan_Details();
                 ld.setName(ldValues.getName().toString());
                 ld.setLoanType("Financial");
@@ -103,7 +104,7 @@ public class LoanCSVFileReader implements Serializable {
         }
     }
 
-    public void consumer() throws JMSException, IOException {
+    public void consumer() throws IOException, JMSException {
         Properties prop = new ReadPropertyFile().config();
         String url = ActiveMQConnection.DEFAULT_BROKER_URL;
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
@@ -112,7 +113,7 @@ public class LoanCSVFileReader implements Serializable {
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         Destination destination = session.createQueue(prop.get("queue.activemq.name").toString());
         MessageConsumer consumer = session.createConsumer(destination);
-        while (consumer.receive() != null) {
+        while ((consumer.receive()) != null) {
             Message message = consumer.receive();
             if (message instanceof ObjectMessage) {
                 ObjectMessage textMessage = ((ObjectMessage) (message));
@@ -123,3 +124,4 @@ public class LoanCSVFileReader implements Serializable {
         connection.close();
     }
 }
+

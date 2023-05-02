@@ -1,25 +1,27 @@
 package com.presto.banking.daoImpl;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
-
-import org.hibernate.HibernateException;
 
 import com.presto.banking.actionForm.Emp_AddTrans;
 import com.presto.banking.util.HibernateUtil;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
+import org.hibernate.HibernateException;
+
+
 /**
  *
  *
  * @author VS60001724
  */
 public class Emp_AddTrans_DaoImpl extends HibernateUtil {
-	
-	EntityManagerFactory entityManagerFactory = HibernateUtil.getSessionFactory();
-	EntityManager entityManager;
+    EntityManagerFactory entityManagerFactory = HibernateUtil.getSessionFactory();
+
+    EntityManager entityManager;
+
     /**
      *
      *
@@ -28,8 +30,8 @@ public class Emp_AddTrans_DaoImpl extends HibernateUtil {
      * @return 
      */
     public Emp_AddTrans deposit(Emp_AddTrans depo) {
-    	entityManager = entityManagerFactory.createEntityManager();
-         entityManager.getTransaction().begin();
+        entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
         Emp_AddTrans abc = new Emp_AddTrans();
         String clid = depo.getClid();
         abc.setClid(clid);
@@ -50,7 +52,7 @@ public class Emp_AddTrans_DaoImpl extends HibernateUtil {
                 System.out.println(f_amount);
                 if (f_amount == null) {
                     abc.setAmount(depos);
-                } else {
+                }else {
                     int sa = Integer.parseInt(f_amount);
                     int sb = Integer.parseInt(depos);
                     int xy = sa + sb;
@@ -80,8 +82,8 @@ public class Emp_AddTrans_DaoImpl extends HibernateUtil {
      * @return 
      */
     public Emp_AddTrans withdrawn(Emp_AddTrans taken) {
-    	entityManager = entityManagerFactory.createEntityManager();
-         entityManager.getTransaction().begin();
+        entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
         Emp_AddTrans abc = new Emp_AddTrans();
         String clid = taken.getClid();
         abc.setClid(clid);
@@ -106,7 +108,7 @@ public class Emp_AddTrans_DaoImpl extends HibernateUtil {
         if ((sa < 1500) || (xy < 1500)) {
             taken.setTest("not");
             entityManager.getTransaction().rollback();
-        } else {
+        }else {
             String xyz = Integer.toString(xy);
             taken.setNamount(xyz);
             abc.setCreated(date);
@@ -126,13 +128,13 @@ public class Emp_AddTrans_DaoImpl extends HibernateUtil {
      */
     @SuppressWarnings("unchecked")
     public List<Emp_AddTrans> list(Emp_AddTrans view) {
-    	entityManager = entityManagerFactory.createEntityManager();
-         entityManager.getTransaction().begin();
+        entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
         String clid = view.getClid();
         System.out.println(clid);
         List<Emp_AddTrans> details = null;
         try {
-            entityManager.createQuery(("From Emp_AddTrans WHERE clid=" + clid) + "");
+            entityManager.createQuery((("From Emp_AddTrans WHERE clid=" + clid) + ""));
         } catch (HibernateException e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -149,8 +151,8 @@ public class Emp_AddTrans_DaoImpl extends HibernateUtil {
      * @return 
      */
     public Emp_AddTrans getCurrentBal(Emp_AddTrans views) {
-    	entityManager = entityManagerFactory.createEntityManager();
-         entityManager.getTransaction().begin();
+        entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
         String clid = views.getClid();
         try {
             String SQL_QUERY = ("SELECT depo.amount FROM Emp_AddTrans depo WHERE depo.clid ='" + clid) + "' ORDER BY depo.id DESC LIMIT 1";
@@ -169,3 +171,4 @@ public class Emp_AddTrans_DaoImpl extends HibernateUtil {
         return views;
     }
 }
+

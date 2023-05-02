@@ -1,6 +1,10 @@
 package com.presto.banking.common;
+
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
+
+
 class PrestoProxyFormula {
     public static void proxyFocusCheck() {
         Object o = null;
@@ -27,3 +31,4 @@ class PrestoProxyFormula {
 
     }
 }
+

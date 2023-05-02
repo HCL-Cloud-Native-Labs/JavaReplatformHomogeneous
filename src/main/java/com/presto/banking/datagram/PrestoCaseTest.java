@@ -1,4 +1,6 @@
 package com.presto.banking.datagram;
+
+
 public class PrestoCaseTest {
     public static boolean checkLetter() {
         char ch1securityCode = 'A';
@@ -10,3 +12,4 @@ public class PrestoCaseTest {
         return b1 && b2;
     }
 }
+

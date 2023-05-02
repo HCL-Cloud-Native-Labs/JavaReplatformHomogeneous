@@ -1,7 +1,11 @@
 package com.presto.banking.actionClass;
+
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.presto.banking.actionForm.Admin_EmpChPW;
 import com.presto.banking.daoImpl.Admin_EmpChPW_DaoImpl;
+
+
 /**
  *
  *
@@ -23,17 +27,19 @@ public class Admin_EmpChPW_Action extends ActionSupport {
         String a = chpw.getNewpw();
         String b = chpw.getCnewpw();
         String c = chpw.getBank_id();
-        if ((a.equals("") || b.equals("")) || c.equals("")) {
+        if (((a.equals("")) || (b.equals(""))) || (c.equals(""))) {
             addActionError("Please Enter All Values");
             return ERROR;
-        } else if (a.equals(b)) {
-            xyz.changepw(chpw);
-            addActionMessage("You have changed Successfully password of Employee:" + c);
-            return SUCCESS;
-        } else {
-            addActionError("Password Not Matching");
-            return ERROR;
-        }
+        }else
+            if (a.equals(b)) {
+                xyz.changepw(chpw);
+                addActionMessage(("You have changed Successfully password of Employee:" + c));
+                return SUCCESS;
+            }else {
+                addActionError("Password Not Matching");
+                return ERROR;
+            }
+
     }
 
     public Admin_EmpChPW getChpw() {
@@ -52,3 +58,4 @@ public class Admin_EmpChPW_Action extends ActionSupport {
         this.xyz = xyz;
     }
 }
+

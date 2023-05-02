@@ -1,4 +1,6 @@
 package com.presto.banking.common;
+
+
 interface PrestoConfigMBean {
     public void setThreadCount(int noOfThreads);
 
@@ -13,3 +15,4 @@ interface PrestoConfigMBean {
     // using do* for operation.
     public String doConfig();
 }
+

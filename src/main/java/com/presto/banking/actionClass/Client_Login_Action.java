@@ -1,13 +1,15 @@
 package com.presto.banking.actionClass;
-import java.util.Map;
 
-import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.presto.banking.actionForm.Client_Login;
 import com.presto.banking.daoImpl.Client_Login_DaoImpl;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
+
+
 public class Client_Login_Action extends ActionSupport implements ModelDriven<Object> , SessionAware {
     private Map<String, Object> session;
 
@@ -27,12 +29,12 @@ public class Client_Login_Action extends ActionSupport implements ModelDriven<Ob
     }
 
     public String checkLogin() {
-        if ((login.getUserName().equals("") || login.getPassword().equals("")) || login.getBank_id().equals("")) {
+        if (((login.getUserName().equals("")) || (login.getPassword().equals(""))) || (login.getBank_id().equals(""))) {
             addActionError("Please enter all values");
             return ERROR;
-        } else {
+        }else {
             login = loginDAO.checkLogin(login);
-            if (null != login.getBank_id()) {
+            if (null != (login.getBank_id())) {
                 String abcd = login.getUserName();
                 String other = login.getBank_id();
                 String uname = login.getUserName();
@@ -41,7 +43,7 @@ public class Client_Login_Action extends ActionSupport implements ModelDriven<Ob
                 session.put("user0", uname);
                 session.put("user1", other);
                 return SUCCESS;
-            } else {
+            }else {
                 addActionError("Invalid user id/password/ Bank _Id");
                 return ERROR;
             }
@@ -52,25 +54,25 @@ public class Client_Login_Action extends ActionSupport implements ModelDriven<Ob
         String a = chpw.getOldpw();
         String b = chpw.getNewpw();
         String c = chpw.getCnewpw();
-        if ((a.equals("") || b.equals("")) || c.equals("")) {
+        if (((a.equals("")) || (b.equals(""))) || (c.equals(""))) {
             addActionError("Please Enter All Values");
             return ERROR;
-        } else {
+        }else {
             System.out.println(a);
             System.out.println(b);
             System.out.println(c);
             if (b.equals(c)) {
                 xyz.changepw(chpw);
                 String ss = chpw.getTest();
-                System.out.println("From Action Class:  " + ss);
-                if (chpw.getTest() == "not") {
+                System.out.println(("From Action Class:  " + ss));
+                if ((chpw.getTest()) == "not") {
                     addActionError("Old Password not matching ");
                     return ERROR;
                 }
-                if (chpw.getTest() == "good") {
+                if ((chpw.getTest()) == "good") {
                     addActionMessage("Password changed Successfully. Account will be Logout");
                 }
-            } else {
+            }else {
                 addActionError("Password not matching");
                 return ERROR;
             }
@@ -120,3 +122,4 @@ public class Client_Login_Action extends ActionSupport implements ModelDriven<Ob
         this.session = session;
     }
 }
+

@@ -1,16 +1,17 @@
 package com.presto.banking.actionClass;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.jms.JMSException;
-
-import org.json.JSONException;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.presto.banking.actionForm.Loan_Details;
 import com.presto.banking.daoImpl.Loan_Add2DB_DaoImpl;
 import com.presto.banking.util.LoanCSVFileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.jms.JMSException;
+import org.json.JSONException;
+
+
 public class Loan_Eligibility_Check_Action extends ActionSupport {
     private static final long serialVersionUID = -4224284910915765989L;
 
@@ -33,8 +34,8 @@ public class Loan_Eligibility_Check_Action extends ActionSupport {
     public String loanfromLocalCSV() throws IOException {
         System.out.println("Reading Local CSV File...");
         ArrayList<Loan_Details> loanDetails = loanCSVFileReader.ReadCSV();
-        for (int i = 0; i < loanDetails.size(); i++)
-            if (25000 > Integer.valueOf(loanDetails.get(i).getMonthlySalary()))
+        for (int i = 0; i < (loanDetails.size()); i++)
+            if (25000 > (Integer.valueOf(loanDetails.get(i).getMonthlySalary())))
                 loanDetails.get(i).setIsEligible("No");
             else
                 loanDetails.get(i).setIsEligible("Yes");
@@ -47,8 +48,8 @@ public class Loan_Eligibility_Check_Action extends ActionSupport {
     public String push2queue() throws IOException, JMSException, JSONException {
         System.out.println("Reading Local CSV File and Push to Queue...");
         ArrayList<Loan_Details> loanDetails = loanCSVFileReader.ReadCSV();
-        for (int i = 0; i < loanDetails.size(); i++)
-            if (25000 > Integer.valueOf(loanDetails.get(i).getMonthlySalary()))
+        for (int i = 0; i < (loanDetails.size()); i++)
+            if (25000 > (Integer.valueOf(loanDetails.get(i).getMonthlySalary())))
                 loanDetails.get(i).setIsEligible("No");
             else
                 loanDetails.get(i).setIsEligible("Yes");
@@ -79,8 +80,8 @@ public class Loan_Eligibility_Check_Action extends ActionSupport {
     public String push2mysql() throws IOException {
         System.out.println("Read Local CSV file and Push Loan Data to MySql...");
         ArrayList<Loan_Details> loanDetails = loanCSVFileReader.ReadCSV();
-        for (int i = 0; i < loanDetails.size(); i++)
-            if (25000 > Integer.valueOf(loanDetails.get(i).getMonthlySalary()))
+        for (int i = 0; i < (loanDetails.size()); i++)
+            if (25000 > (Integer.valueOf(loanDetails.get(i).getMonthlySalary())))
                 loanDetails.get(i).setIsEligible("No");
             else
                 loanDetails.get(i).setIsEligible("Yes");
@@ -101,3 +102,4 @@ public class Loan_Eligibility_Check_Action extends ActionSupport {
         this.loanList = loanList;
     }
 }
+

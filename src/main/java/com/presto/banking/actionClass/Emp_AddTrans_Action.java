@@ -1,9 +1,12 @@
 package com.presto.banking.actionClass;
-import java.util.List;
+
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.presto.banking.actionForm.Emp_AddTrans;
 import com.presto.banking.daoImpl.Emp_AddTrans_DaoImpl;
+import java.util.List;
+
+
 public class Emp_AddTrans_Action extends ActionSupport {
     private static final long serialVersionUID = 1027269765780450738L;
 
@@ -32,9 +35,9 @@ public class Emp_AddTrans_Action extends ActionSupport {
         if (test == "yes") {
             addActionMessage("Withdrwan Successfully ");
             return SUCCESS;
-        } else {
+        }else {
             addActionError("Insufficient Amount");
-            addActionError("Client Amount Is: " + pamount);
+            addActionError(("Client Amount Is: " + pamount));
             addActionError("Minimum Amount Require 1500 Rs. ");
             return ERROR;
         }
@@ -87,3 +90,4 @@ public class Emp_AddTrans_Action extends ActionSupport {
         this.detailList = detailList;
     }
 }
+
