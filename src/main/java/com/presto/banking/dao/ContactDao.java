@@ -1,6 +1,6 @@
 package com.presto.banking.dao;
+import com.presto.banking.actionForm.Emp_AddTrans;
 import java.util.List;
-
 import com.presto.banking.actionForm.Emp_AddTrans;
 public interface ContactDao {
     public Emp_AddTrans add(Emp_AddTrans contact);

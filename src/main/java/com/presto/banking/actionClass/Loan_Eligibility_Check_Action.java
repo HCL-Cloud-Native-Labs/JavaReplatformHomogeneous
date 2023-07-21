@@ -1,16 +1,18 @@
 package com.presto.banking.actionClass;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.jms.JMSException;
-
-import org.json.JSONException;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.presto.banking.actionForm.Loan_Details;
 import com.presto.banking.daoImpl.Loan_Add2DB_DaoImpl;
 import com.presto.banking.util.LoanCSVFileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.jms.JMSException;
+import org.json.JSONException;
+import com.opensymphony.xwork2.ActionSupport;
+import com.presto.banking.actionForm.Loan_Details;
+import com.presto.banking.daoImpl.Loan_Add2DB_DaoImpl;
+import com.presto.banking.util.LoanCSVFileReader;
+import org.json.JSONException;
 public class Loan_Eligibility_Check_Action extends ActionSupport {
     private static final long serialVersionUID = -4224284910915765989L;
 

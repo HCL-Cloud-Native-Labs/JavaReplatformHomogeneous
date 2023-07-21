@@ -1,10 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1"
-	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="Presto"
-		transaction-type="RESOURCE_LOCAL">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><persistence xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" ns0:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence">
+	<persistence-unit name="Presto" transaction-type="RESOURCE_LOCAL">
 
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>com.presto.banking.actionForm.Admin_AddEmp</class>
@@ -22,17 +17,15 @@
 		<class>com.presto.banking.actionForm.Emp_LoginMan</class>
 		<class>com.presto.banking.actionForm.Loan_Details</class>
 		<properties>
-		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />
-			<property name="javax.persistence.jdbc.driver"
-				value="com.mysql.cj.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/banking?characterEncoding=utf8" />
-			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="root" />
-			<property name="hibernate.id.new_generator_mappings" value="false" />
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.implicit_naming_strategy" value="jpa" />
-			<!-- <property name="hibernate.physical_naming_strategy" value="util.CustomPhysicalNamingStrategyImpl" />  -->
+		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+			<!--This block is modified by the ADCloud tool--><property name="javax.persistence.jdbc.url" value="jdbc:mysql://34.85.169.167:3306/banking?characterEncoding=utf8"/><!-- End of the change by the ADCloud tool-->
+			<!--This block is modified by the ADCloud tool--><property name="javax.persistence.jdbc.user" value="admin"/><!-- End of the change by the ADCloud tool-->
+			<!--This block is modified by the ADCloud tool--><property name="javax.persistence.jdbc.password" value="password@123"/><!-- End of the change by the ADCloud tool-->
+			<property name="hibernate.id.new_generator_mappings" value="false"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.implicit_naming_strategy" value="jpa"/>
+			
 		</properties>
 
 	</persistence-unit>

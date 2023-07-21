@@ -1,22 +1,26 @@
 package com.presto.banking.daoImpl;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
-
-import org.apache.struts2.interceptor.SessionAware;
-import org.hibernate.HibernateException;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 import com.presto.banking.actionForm.Emp_Login;
 import com.presto.banking.actionForm.Emp_LoginMan;
 import com.presto.banking.util.HibernateUtil;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
+import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.HibernateException;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ModelDriven;
+import com.presto.banking.actionForm.Emp_Login;
+import com.presto.banking.actionForm.Emp_LoginMan;
+import com.presto.banking.util.HibernateUtil;
+import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.HibernateException;
 /**
  *
  *
@@ -24,9 +28,10 @@ import com.presto.banking.util.HibernateUtil;
  */
 public class Emp_Login_DaoImpl extends HibernateUtil implements ModelDriven<Object> , SessionAware {
     private Map<String, Object> usersession;
-    
+
     EntityManagerFactory entityManagerFactory = HibernateUtil.getSessionFactory();
-	EntityManager entityManager;
+
+    EntityManager entityManager;
 
     /**
      *
@@ -48,7 +53,7 @@ public class Emp_Login_DaoImpl extends HibernateUtil implements ModelDriven<Obje
         String SQL_QUERY = ((((("SELECT login FROM Emp_Login login WHERE login.userName = '" + userName) + "' AND login.password = '") + password) + "' AND login.bank_id = '") + bank_id) + "'";
         try {
             System.out.println(SQL_QUERY);
-             entityManager.getTransaction().begin();
+            entityManager.getTransaction().begin();
             Query query = entityManager.createQuery(SQL_QUERY);
             @SuppressWarnings("rawtypes")
             Iterator it = query.getResultList().iterator();
@@ -63,7 +68,7 @@ public class Emp_Login_DaoImpl extends HibernateUtil implements ModelDriven<Obje
                 entityManager.persist(rr);
                 entityManager.getTransaction().commit();
                 entityManager = entityManagerFactory.createEntityManager();
-                 entityManager.getTransaction().begin();
+                entityManager.getTransaction().begin();
                 String SQL_QUERY1 = ("SELECT depo.created FROM Emp_LoginMan depo WHERE depo.bank_id ='" + bank_id) + "' ORDER BY depo.id DESC";
                 Query query1 = entityManager.createQuery(SQL_QUERY1);
                 @SuppressWarnings("rawtypes")
@@ -103,7 +108,7 @@ public class Emp_Login_DaoImpl extends HibernateUtil implements ModelDriven<Obje
         test2 = chpw.getNewpw();
         // test2 =md5(test2);
         entityManager = entityManagerFactory.createEntityManager();
-         entityManager.getTransaction().begin();
+        entityManager.getTransaction().begin();
         String SQL_QUERY = ((("SELECT chpw.password FROM Emp_Login chpw WHERE chpw.bank_id ='" + abcd) + "' AND chpw.password='") + test) + "' ";
         try {
             Query query = entityManager.createQuery(SQL_QUERY);

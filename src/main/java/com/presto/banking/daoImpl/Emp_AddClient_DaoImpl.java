@@ -1,19 +1,23 @@
 package com.presto.banking.daoImpl;
-import java.util.List;
-import java.util.Map;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
-
-import org.apache.struts2.interceptor.SessionAware;
-import org.hibernate.HibernateException;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 import com.presto.banking.actionForm.Client_Login;
 import com.presto.banking.actionForm.Emp_AddClient;
 import com.presto.banking.util.HibernateUtil;
+import java.util.List;
+import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
+import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.HibernateException;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ModelDriven;
+import com.presto.banking.actionForm.Client_Login;
+import com.presto.banking.actionForm.Emp_AddClient;
+import com.presto.banking.util.HibernateUtil;
+import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.HibernateException;
 /**
  *
  *
@@ -21,10 +25,11 @@ import com.presto.banking.util.HibernateUtil;
  */
 public class Emp_AddClient_DaoImpl extends HibernateUtil implements ModelDriven<Object> , SessionAware {
     private Map<String, Object> usersession;
-    
+
     EntityManagerFactory entityManagerFactory = HibernateUtil.getSessionFactory();
-	EntityManager entityManager;
-	
+
+    EntityManager entityManager;
+
     /**
      *
      *
@@ -33,8 +38,8 @@ public class Emp_AddClient_DaoImpl extends HibernateUtil implements ModelDriven<
      * @return 
      */
     public Emp_AddClient addClient(Emp_AddClient addClient) {
-    	entityManager = entityManagerFactory.createEntityManager();
-         entityManager.getTransaction().begin();
+        entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
         try {
             entityManager.persist(addClient);
         } catch (HibernateException e) {
@@ -53,8 +58,8 @@ public class Emp_AddClient_DaoImpl extends HibernateUtil implements ModelDriven<
      * @return 
      */
     public Client_Login addClients(Client_Login addClients) {
-    	entityManager = entityManagerFactory.createEntityManager();
-         entityManager.getTransaction().begin();
+        entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
         Client_Login abcd = new Client_Login();
         String bank_id = addClients.getBank_id();
         abcd.setBank_id(bank_id);
@@ -77,7 +82,7 @@ public class Emp_AddClient_DaoImpl extends HibernateUtil implements ModelDriven<
     public List<Emp_AddClient> list(Emp_AddClient edit) {
         usersession = ActionContext.getContext().getSession();
         entityManager = entityManagerFactory.createEntityManager();
-         entityManager.getTransaction().begin();
+        entityManager.getTransaction().begin();
         String clid = edit.getBank_id();
         System.out.println(clid);
         List<Emp_AddClient> details = null;
@@ -95,7 +100,7 @@ public class Emp_AddClient_DaoImpl extends HibernateUtil implements ModelDriven<
     public Emp_AddClient eclient(Emp_AddClient eclient) {
         usersession = ActionContext.getContext().getSession();
         entityManager = entityManagerFactory.createEntityManager();
-         entityManager.getTransaction().begin();
+        entityManager.getTransaction().begin();
         String branch = eclient.getBranch();
         String firstName = eclient.getFirstName();
         String middleName = eclient.getMiddleName();

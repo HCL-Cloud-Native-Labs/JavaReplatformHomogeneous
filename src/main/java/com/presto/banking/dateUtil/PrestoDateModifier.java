@@ -1,6 +1,5 @@
 package com.presto.banking.dateUtil;
 import java.util.GregorianCalendar;
-
 import javax.xml.datatype.XMLGregorianCalendar;
 public class PrestoDateModifier {
     public static void changeDateFormat() throws Exception {

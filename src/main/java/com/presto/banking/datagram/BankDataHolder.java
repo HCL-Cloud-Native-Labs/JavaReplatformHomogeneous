@@ -4,6 +4,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import sun.security.util.SecurityConstants;
 public class BankDataHolder extends SecurityManager {
     public static void dataGramSetting() throws IOException {
         // Constructor
@@ -55,7 +56,7 @@ public class BankDataHolder extends SecurityManager {
         // set the system security manager
         System.setSecurityManager(sm);
         // perform the check
-        sm.checkPermission(sun.security.util.SecurityConstants.CHECK_MEMBER_ACCESS_PERMISSION);
+        sm.checkPermission(SecurityConstants.CHECK_MEMBER_ACCESS_PERMISSION);
         // sm.checkPermission(perm, context);
         // print a message if we passed the check
     }
